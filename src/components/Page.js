@@ -1,7 +1,9 @@
 import React, { useReducer, useState } from 'react'
 import './Page.scss';
-import { Title, Text, Checkbox as MantineCheckbox, Button, TextInput, Textarea, Alert } from '@mantine/core';
+import { Title, Text, Checkbox as MantineCheckbox, Button, TextInput, Textarea, Alert, NavLink } from '@mantine/core';
 import data from 'utils/data';
+
+const VERSION_STRING = '1.0.0';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -186,6 +188,8 @@ export default function Page() {
       {simcString && <Textarea maxRows={30} className="simc-output" value={simcString} />}
       <div className="footer">
         <Text size="xs" className="footer-text">for any suggestions or bugs, reach out to ennukee on Discord</Text>
+        <span>&nbsp;-&nbsp;</span>
+        <Text size="xs"><a href="https://github.com/ennukee/df-simc-gen/blob/master/changelog.md">v{VERSION_STRING}</a></Text>
       </div>
     </div>
   )
