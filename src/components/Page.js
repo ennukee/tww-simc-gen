@@ -45,15 +45,81 @@ const defaultState = {
 
 export default function Page() {
   const [toggleData, toggleDispatch] = useReducer(reducer, defaultState)
-  const [simcString, setSimcString] = useState('1\n2');
-  const [error, setError] = useState('There was an issue');
+  const [simcString, setSimcString] = useState('');
+  const [error, setError] = useState('');
 
   const handleToggleClick = (section, simName) => {
     toggleDispatch({ type: 'toggle', section, simName })
   }
 
   const handleGenerateSimcString = () => {
+    let profilesets = [
+      {
+        simProfileName: '',
+        profilesetStrings: [],
+      }
+    ]
+    try {
+      Object.entries(data).forEach(([section, items]) => {
+        if (Object.values(toggleData[section]).every((value) => !value)) {
+          // Do not iterate on a section if there is nothing turned on in it anyway
+          return;
+        }
 
+        const newProfilesets = profilesets.reduce((acc, cur) => {
+          items.forEach((item) => {
+            if (!toggleData[section][item.simName]) {
+              // Do not add this item to the profileset if it is turned off
+              return;
+            }
+
+            const enabledAdditionalParams = Object.entries(toggleData.additionalParams).filter(([key, value]) => {
+              return value
+            })
+            let toAddProfilesetString = item.profilesetString
+            const profilesetStrings = [
+              ...cur.profilesetStrings,
+            ]
+            enabledAdditionalParams.forEach(([key,]) => {
+              if (item.additionalParams?.[key]) {
+                if (item.additionalParams[key].inline) {
+                  toAddProfilesetString = `${toAddProfilesetString}${item.additionalParams[key].profilesetString}`
+                } else {
+                  profilesetStrings.push(item.additionalParams[key].profilesetString)
+                }
+              }
+            })
+            profilesetStrings.push(toAddProfilesetString)
+
+            acc.push({
+              simProfileName: cur.simProfileName ? `${cur.simProfileName} + ${item.simName}` : item.simName,
+              profilesetStrings,
+            })
+          })
+          return acc
+        }, [])
+
+        // fight me
+        profilesets = newProfilesets
+      })
+    } catch (e) {
+      setError('There was an issue generating the profilesets, please try again')
+      console.error(e)
+    }
+
+    try {
+      // Generate actual output string now
+      const outputString = profilesets.map((profileset) => {
+        return profileset.profilesetStrings.map((profilesetString) => {
+          return `profileset."${profileset.simProfileName}"+=${profilesetString}`
+        }).join('\n')
+      }).join('\n')
+      setSimcString(outputString)
+    } catch (e) {
+      setError('There was an issue generating the simc string, please try again')
+      console.error(e)
+    }
+    // console.log(profilesets)
   }
 
   const handleCopyClick = () => {
@@ -117,7 +183,10 @@ export default function Page() {
         <Button onClick={handleGenerateSimcString}>Generate simc string</Button>
         {simcString && <Button onClick={handleCopyClick}>Copy</Button>}
       </div>
-      {simcString && <Textarea className="simc-output" value={simcString} />}
+      {simcString && <Textarea maxRows={30} className="simc-output" value={simcString} />}
+      <div className="footer">
+        <Text size="xs" className="footer-text">for any suggestions or bugs, reach out to ennukee on Discord</Text>
+      </div>
     </div>
   )
 }
