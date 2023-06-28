@@ -135,7 +135,7 @@ export default function Page() {
   return (
     <div id="main">
       <Title order={1}>DF Simc Configurables</Title>
-      <Text size="xs"><a href="#">How do I use the output?</a></Text>
+      <Text size="xs"><a href="https://github.com/ennukee/df-simc-gen/blob/master/how-to-use.md">How do I use the output?</a></Text>
       {error && <Alert className="error" color="red" title="Error">{error}</Alert>}
       <div className="section-container">
         <div className="section">
