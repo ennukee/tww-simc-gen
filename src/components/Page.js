@@ -3,7 +3,7 @@ import './Page.scss';
 import { Title, Text, Checkbox as MantineCheckbox, Button, TextInput, Textarea, Alert, NavLink } from '@mantine/core';
 import data from 'utils/data';
 
-const VERSION_STRING = '1.0.0';
+const VERSION_STRING = '1.0.1';
 
 const reducer = (state, action) => {
   switch (action.type) {
