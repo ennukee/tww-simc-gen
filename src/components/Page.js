@@ -163,7 +163,7 @@ export default function Page() {
             {data.runes.map((rune) => (
               <Checkbox
                 checked={toggleData.runes[rune.simName]}
-                onClick={() => handleToggleClick('flasks', rune.simName)}
+                onClick={() => handleToggleClick('runes', rune.simName)}
                 displayName={rune.displayName}
               />
             ))}
@@ -175,7 +175,7 @@ export default function Page() {
             {data.essenceTrinket.map((type) => (
               <Checkbox
                 checked={toggleData.essenceTrinket[type.simName]}
-                onClick={() => handleToggleClick('flasks', type.simName)}
+                onClick={() => handleToggleClick('essenceTrinket', type.simName)}
                 displayName={type.displayName}
               />
             ))}
