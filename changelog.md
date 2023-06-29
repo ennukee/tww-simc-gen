@@ -2,7 +2,7 @@
 
 ### v1.0.1
 
-*Release date: 6/26/2023 @ 5:36PM PST*
+*Release date: 6/28/2023 @ 5:36PM PST*
 
  - Fixed an issue with the checkboxes for runes / essence
 
