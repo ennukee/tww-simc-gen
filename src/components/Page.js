@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react'
 import './Page.scss';
-import { Title, Text, Checkbox as MantineCheckbox, Button, TextInput, Textarea, Alert, NavLink } from '@mantine/core';
+import { Title, Text, Checkbox as MantineCheckbox, Button, Textarea, Alert } from '@mantine/core';
 import data from 'utils/data';
 
 const VERSION_STRING = '1.0.1';
