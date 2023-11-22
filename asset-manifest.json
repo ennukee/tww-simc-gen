@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/df-simc-gen/static/css/main.f8178597.css",
-    "main.js": "/df-simc-gen/static/js/main.da6841ef.js",
+    "main.js": "/df-simc-gen/static/js/main.385ffd6e.js",
     "index.html": "/df-simc-gen/index.html",
     "main.f8178597.css.map": "/df-simc-gen/static/css/main.f8178597.css.map",
-    "main.da6841ef.js.map": "/df-simc-gen/static/js/main.da6841ef.js.map"
+    "main.385ffd6e.js.map": "/df-simc-gen/static/js/main.385ffd6e.js.map"
   },
   "entrypoints": [
     "static/css/main.f8178597.css",
-    "static/js/main.da6841ef.js"
+    "static/js/main.385ffd6e.js"
   ]
 }
