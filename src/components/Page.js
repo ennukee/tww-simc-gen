@@ -3,7 +3,7 @@ import './Page.scss';
 import { Title, Text, Checkbox as MantineCheckbox, Button, Textarea, Alert } from '@mantine/core';
 import data from 'utils/data';
 
-const VERSION_STRING = '1.0.1';
+const VERSION_STRING = '1.2.0';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,9 +23,9 @@ const reducer = (state, action) => {
 // ! Keys must match the section names and simName values of items in src\utils\data.js
 const defaultState = {
   flasks: {
-    Static: true,
+    Static: false,
     Tepid: true,
-    Chaos: true,
+    Chaos: false,
     Rage: true,
   },
   runes: {
@@ -40,6 +40,16 @@ const defaultState = {
     Ruby: true,
     Obsidian: true,
   },
+  food: {
+    Feast: true,
+    SeafoodPlatter: true,
+    FishSticks: true,
+    CeruleanSea: true,
+    Revenge: true,
+    SeafoodMedley: true,
+    Tongueslicer: true,
+  },
+  // * Additional configs, does not need to match src\utils\data.js
   additionalParams: {
     includeOffhand: false,
   }
@@ -165,6 +175,18 @@ export default function Page() {
                 checked={toggleData.runes[rune.simName]}
                 onClick={() => handleToggleClick('runes', rune.simName)}
                 displayName={rune.displayName}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="section">
+          <Title order={2}>Food Buffs</Title>
+          <div className="option-toggles">
+            {data.food.map((type) => (
+              <Checkbox
+                checked={toggleData.food[type.simName]}
+                onClick={() => handleToggleClick('food', type.simName)}
+                displayName={type.displayName}
               />
             ))}
           </div>

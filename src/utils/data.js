@@ -85,6 +85,43 @@ const data = {
       profilesetString: 'dragonflight.ominous_chromatic_essence_dragonflight=obsidian',
     },
   ],
+  food: [
+    {
+      displayName: 'Main Stat',
+      simName: 'Feast',
+      profilesetString: 'food=fated_fortune_cookie'
+    },
+    {
+      displayName: 'Haste>Vers',
+      simName: 'SeafoodPlatter',
+      profilesetString: 'food=aromatic_seafood_platter',
+    },
+    {
+      displayName: 'Haste>Crit',
+      simName: 'FishSticks',
+      profilesetString: 'food=feisty_fish_sticks',
+    },
+    {
+      displayName: 'Vers>Mast',
+      simName: 'CeruleanSea',
+      profilesetString: 'food=great_cerulean_sea',
+    },   
+    {
+      displayName: 'Crit>Vers',
+      simName: 'Revenge',
+      profilesetString: 'food=revenge_served_cold',
+    },    
+    {
+      displayName: 'Haste>Mast',
+      simName: 'SeafoodMedley',
+      profilesetString: 'food=sizzling_seafood_medley',
+    },    
+    {
+      displayName: 'Crit>Mast',
+      simName: 'Tongueslicer',
+      profilesetString: 'food=thousandbone_tongueslicer',
+    },
+  ],
 }
 
 export default data;
