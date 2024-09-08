@@ -8,9 +8,8 @@ When complete, scroll to the bottom and look for **"Raw Input"**. Open it, and *
 
 This will ensure all defaults are set correctly, such as
 
- - Corrupting Rage uptime
- - Ominous Chromatic Essence allies
- - Blue Silken Lining uptime
+ - Dawnthread/Duskthread uptime
+ - PI
  - Flask, rune, food, or essence config (if you do not want to include it in the profileset gen)
 
 ![](https://i.imgur.com/zKnS9XD.png)

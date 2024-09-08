@@ -1,6 +1,6 @@
 {
-  "name": "df-simc-gen",
-  "homepage": "https://dbowers.io/df-simc-gen",
+  "name": "tww-simc-gen",
+  "homepage": "https://dbowers.io/tww-simc-gen",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -1,125 +1,115 @@
 const data = {
   flasks: [
     {
-      displayName: 'Static Empowerment',
-      simName: 'Static',
-      profilesetString: 'flask=phial_of_static_empowerment_3'
+      displayName: 'Alchemical Chaos (Rotating)',
+      simName: 'Alchemical Chaos',
+      profilesetString: 'flask=flask_of_alchemical_chaos_3'
     },
     {
-      displayName: 'Tepid Versatility',
-      simName: 'Tepid',
-      profilesetString: 'flask=phial_of_tepid_versatility_3',
+      displayName: 'Crit Flask',
+      simName: 'CritFlask',
+      profilesetString: 'flask=flask_of_tempered_aggression_3'
     },
     {
-      displayName: 'Elemental Chaos',
-      simName: 'Chaos',
-      profilesetString: 'flask=phial_of_elemental_chaos_3',
+      displayName: 'Haste Flask',
+      simName: 'HasteFlask',
+      profilesetString: 'flask=flask_of_tempered_swiftness_3'
     },
     {
-      displayName: 'Corrupting Rage',
-      simName: 'Rage',
-      profilesetString: 'flask=iced_phial_of_corrupting_rage_3',
+      displayName: 'Mastery Flask',
+      simName: 'MasteryFlask',
+      profilesetString: 'flask=flask_of_tempered_mastery_3'
+    },
+    {
+      displayName: 'Vers Flask',
+      simName: 'VersFlask',
+      profilesetString: 'flask=flask_of_tempered_versatility_3'
+    },
+  ],
+  potions: [
+    {
+      displayName: 'Tempered Potion',
+      simName: 'Tempered',
+      profilesetString: 'potion=tempered_potion_3'
+    },
+    {
+      displayName: 'Unwavering Focus',
+      simName: 'Unwavering',
+      profilesetString: 'potion=potion_of_unwavering_focus_3'
+    },
+    {
+      displayName: 'Grotesque Vial',
+      simName: 'Grotesque',
+      profilesetString: 'potion=grotesque_vial_3'
     },
   ],
   runes: [
     {
-      displayName: 'Howling Rune (haste) (main hand)',
-      simName: 'Howling',
-      profilesetString: 'temporary_enchant=main_hand:howling_rune_3',
+      displayName: 'Ironclaw Whetstone (AP)',
+      simName: 'Ironclaw',
+      profilesetString: 'temporary_enchant=main_hand:ironclaw_whetstone_3',
       additionalParams: {
         includeOffhand: {
           inline: true,
-          profilesetString: '/off_hand:howling_rune_3',
+          profilesetString: '/off_hand:main_hand:ironclaw_whetstone_3',
         }
       }
     },
-    
     {
-      displayName: 'Hissing Rune (mastery) (main hand)',
-      simName: 'Hissing',
-      profilesetString: 'temporary_enchant=main_hand:hissing_rune_3',
+      displayName: 'Oil of Deep Toxins (Damage)',
+      simName: 'DeepToxins',
+      profilesetString: 'temporary_enchant=oil_of_deep_toxins_3',
       additionalParams: {
         includeOffhand: {
           inline: true,
-          profilesetString: '/off_hand:hissing_rune_3',
+          profilesetString: '/off_hand:oil_of_deep_toxins_3',
         }
       }
     },
-    
     {
-      displayName: 'Buzzing Rune (crit) (main hand)',
-      simName: 'Buzzing',
-      profilesetString: 'temporary_enchant=main_hand:buzzing_rune_3',
+      displayName: 'Algari Mana Oil (Crit/Haste)',
+      simName: 'ManaOil',
+      profilesetString: 'temporary_enchant=algari_mana_oil_3',
       additionalParams: {
         includeOffhand: {
           inline: true,
-          profilesetString: '/off_hand:buzzing_rune_3',
+          profilesetString: '/off_hand:algari_mana_oil_3',
         }
       }
     },
   ],
-  essenceTrinket: [
+  unboundChangeling: [
     {
-      displayName: 'Bronze (haste)',
-      simName: 'Bronze',
-      profilesetString: 'dragonflight.ominous_chromatic_essence_dragonflight=bronze',
+      displayName: 'Haste',
+      simName: 'HasteChangeling',
+      profilesetString: 'shadowlands.unbound_changeling_stat_type=haste',
     },
     {
-      displayName: 'Azure (mastery)',
-      simName: 'Azure',
-      profilesetString: 'dragonflight.ominous_chromatic_essence_dragonflight=azure',
+      displayName: 'Crit',
+      simName: 'CritChangeling',
+      profilesetString: 'shadowlands.unbound_changeling_stat_type=crit',
     },
     {
-      displayName: 'Emerald (crit)',
-      simName: 'Emerald',
-      profilesetString: 'dragonflight.ominous_chromatic_essence_dragonflight=emerald',
+      displayName: 'Mastery',
+      simName: 'MasteryChangeling',
+      profilesetString: 'shadowlands.unbound_changeling_stat_type=mastery',
     },
     {
-      displayName: 'Ruby (vers)',
-      simName: 'Ruby',
-      profilesetString: 'dragonflight.ominous_chromatic_essence_dragonflight=ruby',
-    },
-    {
-      displayName: 'Obsidian (all stats)',
-      simName: 'Obsidian',
-      profilesetString: 'dragonflight.ominous_chromatic_essence_dragonflight=obsidian',
+      displayName: 'All',
+      simName: 'AllStatChangeling',
+      profilesetString: 'shadowlands.unbound_changeling_stat_type=all',
     },
   ],
   food: [
     {
-      displayName: 'Main Stat',
-      simName: 'Feast',
-      profilesetString: 'food=fated_fortune_cookie'
+      displayName: 'Main Stat Feast (+445)',
+      simName: 'PrimaryFood',
+      profilesetString: 'food=feast_of_the_midnight_masquerade'
     },
     {
-      displayName: 'Haste>Vers',
-      simName: 'SeafoodPlatter',
-      profilesetString: 'food=aromatic_seafood_platter',
-    },
-    {
-      displayName: 'Haste>Crit',
-      simName: 'FishSticks',
-      profilesetString: 'food=feisty_fish_sticks',
-    },
-    {
-      displayName: 'Vers>Mast',
-      simName: 'CeruleanSea',
-      profilesetString: 'food=great_cerulean_sea',
-    },   
-    {
-      displayName: 'Crit>Vers',
-      simName: 'Revenge',
-      profilesetString: 'food=revenge_served_cold',
-    },    
-    {
-      displayName: 'Haste>Mast',
-      simName: 'SeafoodMedley',
-      profilesetString: 'food=sizzling_seafood_medley',
-    },    
-    {
-      displayName: 'Crit>Mast',
-      simName: 'Tongueslicer',
-      profilesetString: 'food=thousandbone_tongueslicer',
+      displayName: 'Highest Secondary (+469)',
+      simName: 'SecondaryFood',
+      profilesetString: 'food=beledars_bounty'
     },
   ],
 }

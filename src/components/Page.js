@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import React, { useReducer, useState, useEffect } from 'react'
 import './Page.scss';
 import { Title, Text, Checkbox as MantineCheckbox, Button, Textarea, Alert } from '@mantine/core';
 import data from 'utils/data';
@@ -23,31 +23,31 @@ const reducer = (state, action) => {
 // ! Keys must match the section names and simName values of items in src\utils\data.js
 const defaultState = {
   flasks: {
-    Static: false,
-    Tepid: true,
-    Chaos: false,
-    Rage: true,
+    AlchemicalChaos: false,
+    CritFlask: false,
+    HasteFlask: false,
+    MasteryFlask: false,
+    VersFlask: false,
+  },
+  potions: {
+    Tempered: false,
+    Unwavering: false,
+    Grotesque: false,
   },
   runes: {
-    Howling: true,
-    Hissing: true,
-    Buzzing: true,
+    Ironclaw: false,
+    DeepToxins: false,
+    ManaOil: false,
   },
-  essenceTrinket: {
-    Bronze: true,
-    Azure: true,
-    Emerald: true,
-    Ruby: true,
-    Obsidian: true,
+  unboundChangeling: {
+    HasteChangeling: false,
+    MasteryChangeling: false,
+    VersChangeling: false,
+    CritChangeling: false,
   },
   food: {
-    Feast: true,
-    SeafoodPlatter: true,
-    FishSticks: true,
-    CeruleanSea: true,
-    Revenge: true,
-    SeafoodMedley: true,
-    Tongueslicer: true,
+    PrimaryFood: false,
+    SecondaryFood: false,
   },
   // * Additional configs, does not need to match src\utils\data.js
   additionalParams: {
@@ -59,6 +59,16 @@ export default function Page() {
   const [toggleData, toggleDispatch] = useReducer(reducer, defaultState)
   const [simcString, setSimcString] = useState('');
   const [error, setError] = useState('');
+  const [recentlyCopied, setRecentlyCopied] = useState(false);
+
+  useEffect(() => {
+    if (recentlyCopied) {
+      const timeout = setTimeout(() => {
+        setRecentlyCopied(false);
+      }, 2500)
+      return () => clearTimeout(timeout);
+    }
+  }, [recentlyCopied])
 
   const handleToggleClick = (section, simName) => {
     toggleDispatch({ type: 'toggle', section, simName })
@@ -137,6 +147,7 @@ export default function Page() {
   const handleCopyClick = () => {
     navigator.clipboard.writeText(simcString).then(() => {
       console.log('Copied simc string to clipboard')
+      setRecentlyCopied(true);
     }).catch(() => {
       setError('There was an issue copying string to clipboard, manually copy the string');
     });
@@ -144,8 +155,8 @@ export default function Page() {
 
   return (
     <div id="main">
-      <Title order={1}>DF Simc Configurables</Title>
-      <Text size="xs"><a href="https://github.com/ennukee/df-simc-gen/blob/master/how-to-use.md">How do I use the output?</a></Text>
+      <Title order={1}>TWW Simc Configurables</Title>
+      <Text size="sm"><a href="https://github.com/ennukee/tww-simc-gen/blob/master/how-to-use.md">How do I use the output?</a></Text>
       {error && <Alert className="error" color="red" title="Error">{error}</Alert>}
       <div className="section-container">
         <div className="section">
@@ -161,7 +172,19 @@ export default function Page() {
           </div>
         </div>
         <div className="section">
-          <Title order={2}>Runes</Title>
+          <Title order={2}>Potion</Title>
+          <div className="option-toggles">
+            {data.potions.map((pot) => (
+              <Checkbox
+                checked={toggleData.potions[pot.simName]}
+                onClick={() => handleToggleClick('potions', pot.simName)}
+                displayName={pot.displayName}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="section">
+          <Title order={2}>Weapon Augments</Title>
           <div className="additional-params">
             <Checkbox
               checked={toggleData.additionalParams.includeOffhand}
@@ -192,12 +215,12 @@ export default function Page() {
           </div>
         </div>
         <div className="section">
-          <Title order={2}>Ominous Chromatic Essence</Title>
+          <Title order={2}>Unbound Changeling</Title>
           <div className="option-toggles">
-            {data.essenceTrinket.map((type) => (
+            {data.unboundChangeling.map((type) => (
               <Checkbox
-                checked={toggleData.essenceTrinket[type.simName]}
-                onClick={() => handleToggleClick('essenceTrinket', type.simName)}
+                checked={toggleData.unboundChangeling[type.simName]}
+                onClick={() => handleToggleClick('unboundChangeling', type.simName)}
                 displayName={type.displayName}
               />
             ))}
@@ -206,13 +229,16 @@ export default function Page() {
       </div>
       <div className="buttons">
         <Button onClick={handleGenerateSimcString}>Generate simc string</Button>
-        {simcString && <Button onClick={handleCopyClick}>Copy</Button>}
+        {simcString &&
+          <Button color={recentlyCopied ? "green" : "blue"} onClick={handleCopyClick}>
+            {recentlyCopied ? "Copied to clipboard" : "Copy"}
+          </Button>}
       </div>
       {simcString && <Textarea maxRows={30} className="simc-output" value={simcString} />}
       <div className="footer">
         <Text size="xs" className="footer-text">for any suggestions or bugs, reach out to ennukee on Discord</Text>
         <span>&nbsp;-&nbsp;</span>
-        <Text size="xs"><a href="https://github.com/ennukee/df-simc-gen/blob/master/changelog.md">v{VERSION_STRING}</a></Text>
+        <Text size="xs"><a href="https://github.com/ennukee/tww-simc-gen/blob/master/changelog.md">v{VERSION_STRING}</a></Text>
       </div>
     </div>
   )
