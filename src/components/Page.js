@@ -49,6 +49,12 @@ const defaultState = {
     PrimaryFood: false,
     SecondaryFood: false,
   },
+  cyrce: {
+    HasteCyrce: false,
+    MasteryCyrce: false,
+    VersCyrce: false,
+    CritCyrce: false,
+  },
   // * Additional configs, does not need to match src\utils\data.js
   additionalParams: {
     includeOffhand: false,
@@ -209,6 +215,19 @@ export default function Page() {
               <Checkbox
                 checked={toggleData.food[type.simName]}
                 onClick={() => handleToggleClick('food', type.simName)}
+                displayName={type.displayName}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="section">
+          <Title order={2}>Cyrce's Circlet (Windsinger)</Title>
+          <div className="additional-params">What stat is your highest when equipping Cyrce?</div>
+          <div className="option-toggles">
+            {data.cyrce.map((type) => (
+              <Checkbox
+                checked={toggleData.cyrce[type.simName]}
+                onClick={() => handleToggleClick('cyrce', type.simName)}
                 displayName={type.displayName}
               />
             ))}

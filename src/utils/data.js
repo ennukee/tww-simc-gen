@@ -112,6 +112,28 @@ const data = {
       profilesetString: 'food=beledars_bounty'
     },
   ],
+  cyrce: [
+    {
+      displayName: 'Haste Highest',
+      simName: 'HasteCyrce',
+      profilesetString: 'thewarwithin.windsingers_passive_stat=haste',
+    },
+    {
+      displayName: 'Crit Highest',
+      simName: 'CritCyrce',
+      profilesetString: 'thewarwithin.windsingers_passive_stat=crit',
+    },
+    {
+      displayName: 'Mastery Highest',
+      simName: 'MasteryCyrce',
+      profilesetString: 'thewarwithin.windsingers_passive_stat=mastery',
+    },
+    {
+      displayName: 'Vers Highest',
+      simName: 'VersCyrce',
+      profilesetString: 'thewarwithin.windsingers_passive_stat=vers',
+    },
+  ]
 }
 
 export default data;
