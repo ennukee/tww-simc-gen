@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tww-simc-gen/static/css/main.f704f049.css",
-    "main.js": "/tww-simc-gen/static/js/main.79c1b7ec.js",
+    "main.css": "/tww-simc-gen/static/css/main.9d68dc40.css",
+    "main.js": "/tww-simc-gen/static/js/main.162789dc.js",
     "index.html": "/tww-simc-gen/index.html",
-    "main.f704f049.css.map": "/tww-simc-gen/static/css/main.f704f049.css.map",
-    "main.79c1b7ec.js.map": "/tww-simc-gen/static/js/main.79c1b7ec.js.map"
+    "main.9d68dc40.css.map": "/tww-simc-gen/static/css/main.9d68dc40.css.map",
+    "main.162789dc.js.map": "/tww-simc-gen/static/js/main.162789dc.js.map"
   },
   "entrypoints": [
-    "static/css/main.f704f049.css",
-    "static/js/main.79c1b7ec.js"
+    "static/css/main.9d68dc40.css",
+    "static/js/main.162789dc.js"
   ]
 }
