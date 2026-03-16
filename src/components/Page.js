@@ -162,6 +162,7 @@ export default function Page() {
   return (
     <div id="main">
       <Title order={1}>TWW Simc Configurables</Title>
+      <Text size="lg">This tool has been updated for Midnight! Find it <a href="https://dbowers.io/midnight-simc-gen">here!</a></Text>
       <Text size="sm"><a href="https://github.com/ennukee/tww-simc-gen/blob/master/how-to-use.md">How do I use the output?</a></Text>
       {error && <Alert className="error" color="red" title="Error">{error}</Alert>}
       <div className="section-container">
